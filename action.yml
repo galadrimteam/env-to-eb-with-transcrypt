@@ -1,5 +1,5 @@
-name: Bash Action
-description: A sample GitHub Action written in Bash
+name: Transcrypt env file to ElasticBeanstalk
+description: Add transcrypt encoded environnement file to ElasticBeanstalk
 
 inputs:
   env_file:
