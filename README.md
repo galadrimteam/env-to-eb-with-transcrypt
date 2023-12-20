@@ -1,4 +1,4 @@
-[![Verify](https://github.com/rethab/bash-action/actions/workflows/verify.yml/badge.svg)](https://github.com/rethab/bash-action/actions/workflows/verify.yml)
+[![Verify](https://github.com/galadrimteam/trancrypt-env-file-to-eb/actions/workflows/verify.yml/badge.svg)](https://github.com/galadrimteam/trancrypt-env-file-to-eb/actions/workflows/verify.yml)
 
 # Create a Bash Action
 
