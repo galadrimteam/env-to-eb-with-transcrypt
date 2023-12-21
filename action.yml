@@ -25,4 +25,4 @@ runs:
       - shell: bash
         run: transcrypt/transcrypt -c aes-256-cbc -p '${{ inputs.transcrypt_key }}' -y
       - shell: bash
-        run: bash generate-eb-env.sh ${{ inputs.env_file }} ${{ inputs.eb_config_path }}
+        run: bash ${GITHUB_ACTION_PATH}/generate-eb-env.sh ${{ inputs.env_file }} ${{ inputs.eb_config_path }}
