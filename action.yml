@@ -1,5 +1,5 @@
-name: Transcrypt env file to ElasticBeanstalk
-description: Add transcrypt encoded environnement file to ElasticBeanstalk
+name: Env file to ElasticBeanstalk with Transcrypt
+description: Add environnement file encoded with Transcrypt to ElasticBeanstalk
 
 branding:
   icon: 'file-text'

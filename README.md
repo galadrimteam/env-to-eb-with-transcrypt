@@ -1,4 +1,4 @@
-[![Verify](https://github.com/galadrimteam/trancrypt-env-file-to-eb/actions/workflows/verify.yml/badge.svg)](https://github.com/galadrimteam/trancrypt-env-file-to-eb/actions/workflows/verify.yml)
+[![Verify](https://github.com/galadrimteam/env-to-eb-with-transcrypt/actions/workflows/verify.yml/badge.svg)](https://github.com/galadrimteam/env-to-eb-with-transcrypt/actions/workflows/verify.yml)
 
 # Add transcrypt encoded file to ElasticBeanstalk
 
@@ -16,7 +16,7 @@ Example workflow setup:
 ```yaml
 steps:
   ...
-  - uses: galadrimteam/transcrypt-env-file-to-eb@1
+  - uses: galadrimteam/env-to-eb-with-transcrypt@1
     with:
       env_file: backend/.env.staging
       transcrypt_key: ${{ secrets.TRANSCRYPT_KEY }}
