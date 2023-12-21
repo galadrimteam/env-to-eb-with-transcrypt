@@ -14,15 +14,10 @@ Decrypt the file and add it to the ebconfig file. The default path for the confi
 Example workflow setup:
 
 ```yaml
-name: Add env to ElasticBeanstalk
-
-jobs:
-  add-env:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: galadrimteam/transcrypt-env-file-to-eb@1
-        with:
-          env_file: backend/.staging.env
-          transcrypt_key: s07Fjs/lwSJs+tpOZf2s9z0e0Ak6wpen/F3TqXPu
-          eb_config_path: backend/.ebextensions/options.config
+steps:
+  - uses: galadrimteam/transcrypt-env-file-to-eb@1
+    with:
+      env_file: backend/.env.staging
+      transcrypt_key: ${{ secrets.TRANSCRYPT_KEY }}
+      eb_config_path: backend/.ebextensions/options.config
 ```
