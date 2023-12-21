@@ -1,6 +1,10 @@
 name: Transcrypt env file to ElasticBeanstalk
 description: Add transcrypt encoded environnement file to ElasticBeanstalk
 
+branding:
+  icon: 'file-text'
+  color: 'blue'
+
 inputs:
   env_file:
     description: path to env file

@@ -16,10 +16,6 @@ Example workflow setup:
 ```yaml
 name: Add env to ElasticBeanstalk
 
-on:
-  pull_request:
-    branches:
-      - staging
 jobs:
   add-env:
     runs-on: ubuntu-latest
