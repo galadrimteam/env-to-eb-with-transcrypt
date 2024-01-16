@@ -8,11 +8,11 @@ touch "$CONFIG_FILE"
 
 {
     echo "option_settings:"
-    echo $'\taws:elasticbeanstalk:application:environment:'
+    echo $'  aws:elasticbeanstalk:application:environment:'
 } >>"$CONFIG_FILE"
 
 while IFS= read -r line || [[ -n "$line" ]]; do
     if [[ "$line" != \#* ]] && [[ -n "$line" ]]; then
-        echo $'\t\t'"${line/=/: }" >>"$CONFIG_FILE"
+        echo $'    '"${line/=/: }" >>"$CONFIG_FILE"
     fi
 done <"$ENV_FILE"
