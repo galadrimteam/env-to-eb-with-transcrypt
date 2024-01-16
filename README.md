@@ -16,7 +16,7 @@ Example workflow setup:
 ```yaml
 steps:
   ...
-  - uses: galadrimteam/env-to-eb-with-transcrypt@1
+  - uses: galadrimteam/env-to-eb-with-transcrypt@v1.0
     with:
       env_file: backend/.env.staging
       transcrypt_key: ${{ secrets.TRANSCRYPT_KEY }}
