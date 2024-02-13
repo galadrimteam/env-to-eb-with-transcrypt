@@ -2,8 +2,8 @@ name: Env file to ElasticBeanstalk with Transcrypt
 description: Add environnement file encoded with Transcrypt to ElasticBeanstalk
 
 branding:
-  icon: 'file-text'
-  color: 'blue'
+  icon: "file-text"
+  color: "blue"
 
 inputs:
   env_file:
@@ -20,9 +20,15 @@ inputs:
 runs:
   using: composite
   steps:
-      - shell: bash
-        run: git clone https://github.com/elasticdog/transcrypt.git
-      - shell: bash
-        run: transcrypt/transcrypt -c aes-256-cbc -p '${{ inputs.transcrypt_key }}' -y
-      - shell: bash
-        run: bash ${GITHUB_ACTION_PATH}/generate-eb-env.sh ${{ inputs.env_file }} ${{ inputs.eb_config_path }}
+    - name: Vérifier la variable secrète TRANSCRYPT_KEY
+      run: |
+        if [ -z "$TRANSCRYPT_KEY" ]; then
+          echo "La variable secrète TRANSCRYPT_KEY n'est pas définie."
+          exit 1
+        fi
+    - shell: bash
+      run: git clone https://github.com/elasticdog/transcrypt.git
+    - shell: bash
+      run: transcrypt/transcrypt -c aes-256-cbc -p '${{ inputs.transcrypt_key }}' -y
+    - shell: bash
+      run: bash ${GITHUB_ACTION_PATH}/generate-eb-env.sh ${{ inputs.env_file }} ${{ inputs.eb_config_path }}
