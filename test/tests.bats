@@ -6,10 +6,11 @@ load 'test_helper/bats-assert/load'
 setup() {
     ENV_FILE="temp_env_file"
     CONFIG_FILE="temp_config_file"
+    TRANSCRYPT_KEY="transcrypt_key"
 }
 
 teardown() {
-    rm -f "$ENV_FILE" "$CONFIG_FILE"
+    rm -f "$ENV_FILE" "$CONFIG_FILE" "$TRANSCRYPT_KEY"
 }
 
 @test "Empty File Test" {
