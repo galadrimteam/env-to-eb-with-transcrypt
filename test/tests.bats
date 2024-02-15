@@ -6,11 +6,11 @@ load 'test_helper/bats-assert/load'
 setup() {
     ENV_FILE="temp_env_file"
     CONFIG_FILE="temp_config_file"
-    TRANSCRYPT_KEY="transcrypt_key"
+    TRANSCRYPT_KEY
 }
 
 teardown() {
-    rm -f "$ENV_FILE" "$CONFIG_FILE" "$TRANSCRYPT_KEY"
+    rm -f "$ENV_FILE" "$CONFIG_FILE"
 }
 
 @test "Empty File Test" {
@@ -37,7 +37,7 @@ teardown() {
         echo "VAR2=value2"
     } >"$ENV_FILE"
     bash generate-eb-env.sh "$ENV_FILE" "$CONFIG_FILE"
-    assert_equal "$(cat "$CONFIG_FILE")" $'option_settings:\n  aws:elasticbeanstalk:application:environment:\n  VAR1: value1\n  VAR2: value2'
+    assert_equal "$(cat "$CONFIG_FILE")" $'option_settings:\n  aws:elasticbeanstalk:application:environment:\n    VAR1: value1\n    VAR2: value2'
 }
 
 @test "No comments Test" {
@@ -46,5 +46,5 @@ teardown() {
         echo "VAR2=value2"
     } >"$ENV_FILE"
     bash generate-eb-env.sh "$ENV_FILE" "$CONFIG_FILE"
-    assert_equal "$(cat "$CONFIG_FILE")" $'option_settings:\n  aws:elasticbeanstalk:application:environment:\n  VAR1: value1\n  VAR2: value2'
+    assert_equal "$(cat "$CONFIG_FILE")" $'option_settings:\n  aws:elasticbeanstalk:application:environment:\n    VAR1: value1\n    VAR2: value2'
 }
