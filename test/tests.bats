@@ -6,7 +6,6 @@ load 'test_helper/bats-assert/load'
 setup() {
     ENV_FILE="temp_env_file"
     CONFIG_FILE="temp_config_file"
-    TRANSCRYPT_KEY
 }
 
 teardown() {
