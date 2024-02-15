@@ -16,7 +16,7 @@ teardown() {
 @test "Empty File Test" {
     touch "$ENV_FILE"
     bash generate-eb-env.sh "$ENV_FILE" "$CONFIG_FILE"
-    assert_equal "$(cat "$CONFIG_FILE")" $'option_settings:\n\taws:elasticbeanstalk:application:environment:'
+    assert_equal "$(cat "$CONFIG_FILE")" $'option_settings:\n  aws:elasticbeanstalk:application:environment:'
 }
 
 @test "All Comments Test" {
@@ -25,7 +25,7 @@ teardown() {
         echo "# Another comment line"
     } >"$ENV_FILE"
     bash generate-eb-env.sh "$ENV_FILE" "$CONFIG_FILE"
-    assert_equal "$(cat "$CONFIG_FILE")" $'option_settings:\n\taws:elasticbeanstalk:application:environment:'
+    assert_equal "$(cat "$CONFIG_FILE")" $'option_settings:\n  aws:elasticbeanstalk:application:environment:'
 }
 
 @test "Mixed Content Test" {
@@ -37,7 +37,7 @@ teardown() {
         echo "VAR2=value2"
     } >"$ENV_FILE"
     bash generate-eb-env.sh "$ENV_FILE" "$CONFIG_FILE"
-    assert_equal "$(cat "$CONFIG_FILE")" $'option_settings:\n\taws:elasticbeanstalk:application:environment:\n\t\tVAR1: value1\n\t\tVAR2: value2'
+    assert_equal "$(cat "$CONFIG_FILE")" $'option_settings:\n  aws:elasticbeanstalk:application:environment:\n  VAR1: value1\n  VAR2: value2'
 }
 
 @test "No comments Test" {
@@ -46,5 +46,5 @@ teardown() {
         echo "VAR2=value2"
     } >"$ENV_FILE"
     bash generate-eb-env.sh "$ENV_FILE" "$CONFIG_FILE"
-    assert_equal "$(cat "$CONFIG_FILE")" $'option_settings:\n\taws:elasticbeanstalk:application:environment:\n\t\tVAR1: value1\n\t\tVAR2: value2'
+    assert_equal "$(cat "$CONFIG_FILE")" $'option_settings:\n  aws:elasticbeanstalk:application:environment:\n  VAR1: value1\n  VAR2: value2'
 }
