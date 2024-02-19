@@ -23,7 +23,7 @@ runs:
     - shell: bash
       name: Vérifier la variable secrète TRANSCRYPT_KEY
       run: |
-        if [ -z "$TRANSCRYPT_KEY" ]; then
+        if [ -z "${{ inputs.transcrypt_key }}" ]; then
           echo "La variable secrète TRANSCRYPT_KEY n'est pas définie."
           exit 1
         fi
